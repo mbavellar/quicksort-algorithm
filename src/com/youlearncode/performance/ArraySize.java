@@ -14,11 +14,6 @@ public enum ArraySize {
   BILLION(1_000_000_000);
   
   private final int size;
-  
-  ArraySize(int size) {
-    this.size = size;
-  }
-  public int getSize() {
-    return size;
-  }
+  ArraySize(int size) { this.size = size; }
+  public int getSize() { return size; }
 }
