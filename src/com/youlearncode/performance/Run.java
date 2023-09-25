@@ -28,7 +28,7 @@ public class Run {
   public static <T, E extends Comparable<E>> void applySortingAlgorithm(Class<T> cls, E[] arr) {
     Run.printElapsedTimeInMilliSeconds(cls.getSimpleName(), () -> {
       try {
-        cls.getMethod("sort", int[].class).invoke(null, arr);
+        cls.getMethod("sort", Comparable[].class).invoke(null, (Object) arr);
       } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
         e.printStackTrace();
       }
@@ -37,15 +37,15 @@ public class Run {
     System.out.println("Swap times: " + BaseSort.getSwapTimes());
   }
   
-  public static <T> void applySortingAlgorithm(Class<T> cls, String[] arr) {
-    Run.printElapsedTimeInMilliSeconds(cls.getSimpleName(), () -> {
-      try {
-        cls.getMethod("sort", String[].class).invoke(null, (Object) arr);
-      } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-        e.printStackTrace();
-      }
-    });
-    System.out.println("After sorting:\n" + Arrays.toString(arr));
-    System.out.println("Swap times: " + BaseSort.getSwapTimes());
-  }
+//  public static <T> void applySortingAlgorithm(Class<T> cls, String[] arr) {
+//    Run.printElapsedTimeInMilliSeconds(cls.getSimpleName(), () -> {
+//      try {
+//        cls.getMethod("sort", String[].class).invoke(null, (Object) arr);
+//      } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+//        e.printStackTrace();
+//      }
+//    });
+//    System.out.println("After sorting:\n" + Arrays.toString(arr));
+//    System.out.println("Swap times: " + BaseSort.getSwapTimes());
+//  }
 }

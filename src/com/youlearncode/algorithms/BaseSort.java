@@ -2,12 +2,12 @@ package com.youlearncode.algorithms;
 
 public abstract class BaseSort {
   private static long swapTimes;
-  public static <E> void swap(E[] arr, int firstIndex, int secondIndex) {
+  public static <T extends Comparable<T>> void swap(T[] arr, int firstIndex, int secondIndex) {
     if (firstIndex != secondIndex) {
-      E temp = arr[firstIndex];
+      T temp = arr[firstIndex];
       arr[firstIndex] = arr[secondIndex];
       arr[secondIndex] = temp;
-      swapTimes += 2;
+      swapTimes++;
     }
   }
   
@@ -16,7 +16,7 @@ public abstract class BaseSort {
       int temp = arr[firstIndex];
       arr[firstIndex] = arr[secondIndex];
       arr[secondIndex] = temp;
-      swapTimes += 2;
+      swapTimes++;
     }
   }
   
